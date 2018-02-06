@@ -119,25 +119,65 @@ new Vue(module.exports)
 
 module.exports = {
   "wrapper": {
-    "justifyContent": "center",
-    "alignItems": "center"
+    "position": "absolute",
+    "top": 0,
+    "right": 0,
+    "bottom": 0,
+    "left": 0
   },
-  "logo": {
-    "width": "424",
-    "height": "200"
+  "login": {
+    "marginTop": "180"
   },
-  "greeting": {
-    "marginTop": "70",
-    "fontSize": "50",
-    "color": "#41B883"
+  "input-wrapper": {
+    "width": "550",
+    "marginLeft": "100",
+    "marginRight": "100",
+    "marginBottom": "30"
   },
-  "message": {
-    "marginTop": "30",
-    "marginRight": "30",
-    "marginBottom": "30",
-    "marginLeft": "30",
-    "fontSize": "32",
-    "color": "#727272"
+  "input": {
+    "fontSize": "30",
+    "height": "80",
+    "width": "550",
+    "paddingLeft": "90",
+    "paddingTop": "15",
+    "borderWidth": "1",
+    "borderColor": "#48c9bf",
+    "borderRadius": "10",
+    "outline": "none"
+  },
+  "input-img": {
+    "position": "absolute",
+    "top": "10",
+    "left": "15",
+    "width": 550,
+    "backgroundColor": "#48c9bf",
+    "borderRadius": "10",
+    "marginTop": "40"
+  },
+  "input-login-text": {
+    "height": "80",
+    "widows": "550",
+    "textAlign": "center",
+    "lineHeight": "80",
+    "color": "#FFFFFF",
+    "fontSize": "35"
+  },
+  "input-login": {
+    "height": "80",
+    "width": "550",
+    "backgroundColor": "#48c9bf",
+    "borderRadius": "10",
+    "marginTop": "40"
+  },
+  "input-forget": {
+    "position": "absolute",
+    "left": "30",
+    "fontSize": "30"
+  },
+  "input-register": {
+    "position": "absolute",
+    "right": "30",
+    "fontSize": "30"
   }
 }
 
@@ -148,9 +188,31 @@ module.exports = {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -160,11 +222,34 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 
-exports.default = {
-  data: function data() {
-    return {
-      logo: 'http://g.hiphotos.baidu.com/image/h%3D300/sign=0a9f67bc16950a7b6a3548c43ad0625c/c8ea15ce36d3d539f09733493187e950342ab095.jpg'
-    };
+module.exports = {
+
+  data: {
+    mobile: "",
+    pwd: ""
+  },
+
+  methods: {
+
+    onChangeUserMobile: function onChangeUserMobile(event) {
+      this.mobile = event.value;
+    },
+
+    onChangeUserPassword: function onChangeUserPassword(event) {
+      this.pwd = event.value;
+    },
+
+    findPassword: function findPassword() {
+      console.log("Go Find pwd");
+    },
+
+    register: function register() {
+      console.log("Go register");
+    },
+
+    login: function login() {
+      console.log("mobile = " + this.mobile + "password = " + this.pwd);
+    }
   }
 };
 
@@ -173,19 +258,61 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wrapper"]
-  }, [_c('image', {
-    staticClass: ["logo"],
+  }, [_c('div', {
+    staticClass: ["login"]
+  }, [_c('div', {
+    staticClass: ["input-wrapper"]
+  }, [_c('input', {
+    staticClass: ["input"],
     attrs: {
-      "src": _vm.logo
+      "type": "text",
+      "placeholder": "Input Mobile",
+      "autofocus": "true",
+      "value": "",
+      "onchange": "onChangeUserMobile"
     }
-  }), _c('text', {
-    staticClass: ["greeting"]
-  }, [_vm._v("The environment is ready!")]), _c('text', {
-    staticClass: ["message"]
-  }, [_vm._v("Now, let's use Vue.js to build your WeexBible app.")])])
-},staticRenderFns: []}
+  }), _c('div', {
+    staticClass: ["input-img"]
+  })]), _c('div', {
+    staticClass: ["input-wrapper"]
+  }, [_c('input', {
+    staticClass: ["input"],
+    attrs: {
+      "type": "text",
+      "placeholder": "Input Password",
+      "autofocus": "true",
+      "value": "",
+      "onchange": "onChangeUserPassword"
+    }
+  }), _c('div', {
+    staticClass: ["input-img"]
+  })]), _c('div', {
+    staticClass: ["input-wrapper"]
+  }, [_c('div', {
+    staticClass: ["input-login"],
+    attrs: {
+      "onclick": "login"
+    }
+  }, [_c('text', {
+    staticClass: ["input-login-text"]
+  }, [_vm._v("Login")])])]), _c('div', {
+    staticClass: ["input-wrapper"]
+  }, [_c('text', {
+    staticClass: ["input-forget"],
+    attrs: {
+      "onclick": "findPassword"
+    }
+  }, [_vm._v("Find password")]), _c('text', {
+    staticClass: ["input-register"],
+    attrs: {
+      "onclick": "register"
+    }
+  }, [_vm._v("Register")])])])])
+}]}
 module.exports.render._withStripped = true
 
 /***/ })
