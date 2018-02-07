@@ -1,3 +1,4 @@
+<!--
 <template>
   <div class="menu-right" v-if="get_user_info.login">
     <div class="notification-menu">
@@ -90,3 +91,4 @@
     }
   }
 </script>
+-->

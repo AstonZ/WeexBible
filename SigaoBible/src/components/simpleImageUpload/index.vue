@@ -1,3 +1,4 @@
+<!--
 <template>
   <el-upload
     class="image-uploader-warp"
@@ -122,3 +123,4 @@
     }
   }
 </style>
+-->

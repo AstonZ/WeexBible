@@ -62,110 +62,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// this module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-
-/***/ 1:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports) {
 
 var g;
@@ -192,8 +93,7 @@ module.exports = g;
 
 
 /***/ }),
-
-/***/ 2:
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -383,315 +283,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-
-/***/ 21:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!vue-style-loader!css-loader?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-compiler/index?{\"vue\":true,\"id\":\"data-v-653bd61a\",\"scoped\":false,\"hasInlineConfig\":false}!sass-loader?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/selector?type=styles&index=0!./index.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(22),
-  /* template */
-  __webpack_require__(23),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/charts/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-653bd61a", Component.options)
-  } else {
-    hotAPI.reload("data-v-653bd61a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 22:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-// enumerating ECharts events for now
-var ACTION_EVENTS = ['legendselectchanged', 'legendselected', 'legendunselected', 'datazoom', 'datarangeselected', 'timelinechanged', 'timelineplaychanged', 'restore', 'dataviewchanged', 'magictypechanged', 'geoselectchanged', 'geoselected', 'geounselected', 'pieselectchanged', 'pieselected', 'pieunselected', 'mapselectchanged', 'mapselected', 'mapunselected', 'axisareaselected', 'brush', 'brushselected'];
-var MOUSE_EVENTS = ['click', 'dblclick', 'mouseover', 'mouseout', 'mousedown', 'mouseup', 'globalout'];
-exports.default = {
-  props: {
-    options: Object,
-    theme: String,
-    initOptions: Object,
-    group: String,
-    autoResize: Boolean,
-    modules: Array
-  },
-  data: function data() {
-    return {
-      chart: null,
-      dataLoading: true
-    };
-  },
-
-  computed: {
-    // Only recalculated when accessed from JavaScript.
-    // Won't update DOM on value change because getters
-    // don't depend on reactive values
-    width: {
-      cache: false,
-      get: function get() {
-        return this.chart.getWidth();
-      }
-    },
-    height: {
-      cache: false,
-      get: function get() {
-        return this.chart.getHeight();
-      }
-    },
-    isDisposed: {
-      cache: false,
-      get: function get() {
-        return this.chart.isDisposed();
-      }
-    }
-  },
-  watch: {
-    // use assign statements to tigger "options" and "group" setters
-    options: {
-      handler: function handler(options) {
-        if (!this.chart && options) {
-          this._init();
-        } else {
-          this.chart.setOption(this.options, true);
-        }
-      },
-
-      deep: true
-    },
-    group: {
-      handler: function handler(group) {
-        this.chart.group = group;
-      }
-    }
-  },
-  methods: {
-    // provide a explicit merge option method
-    mergeOptions: function mergeOptions(options) {
-      this._delegateMethod('setOption', options);
-    },
-
-    // just delegates ECharts methods to Vue component
-    // use explicit params to reduce transpiled size for now
-    resize: function resize(options) {
-      this._delegateMethod('resize', options);
-    },
-    dispatchAction: function dispatchAction(payload) {
-      this._delegateMethod('dispatchAction', payload);
-    },
-    convertToPixel: function convertToPixel(finder, value) {
-      return this._delegateMethod('convertToPixel', finder, value);
-    },
-    convertFromPixel: function convertFromPixel(finder, value) {
-      return this._delegateMethod('convertFromPixel', finder, value);
-    },
-    containPixel: function containPixel(finder, value) {
-      return this._delegateMethod('containPixel', finder, value);
-    },
-    showLoading: function showLoading(type, options) {
-      this._delegateMethod('showLoading', type, options);
-    },
-    hideLoading: function hideLoading() {
-      this._delegateMethod('hideLoading');
-    },
-    getDataURL: function getDataURL(options) {
-      return this._delegateMethod('getDataURL', options);
-    },
-    getConnectedDataURL: function getConnectedDataURL(options) {
-      return this._delegateMethod('getConnectedDataURL', options);
-    },
-    clear: function clear() {
-      this._delegateMethod('clear');
-    },
-    dispose: function dispose() {
-      this._delegateMethod('dispose');
-    },
-    _delegateMethod: function _delegateMethod(name) {
-      var _chart;
-
-      if (!this.chart) {
-        return;
-      }
-
-      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        args[_key - 1] = arguments[_key];
-      }
-
-      return (_chart = this.chart)[name].apply(_chart, args);
-    },
-    _init: function _init() {
-      var _this = this;
-
-      if (this.chart) return false;
-
-      this.dataLoading = true;
-      /**
-       * 按需引入 ECharts 图表组件
-       * doc: http://echarts.baidu.com
-       */
-      Promise.reject(function webpackMissingModule() { var e = new Error("Cannot find module \"echarts\""); e.code = 'MODULE_NOT_FOUND';; return e; }()).then(function (_ref) {
-        var init = _ref.init;
-        var $el = _this.$el,
-            theme = _this.theme,
-            initOptions = _this.initOptions,
-            group = _this.group,
-            options = _this.options,
-            autoResize = _this.autoResize,
-            _resizeHanlder = _this._resizeHanlder;
-
-        var chart = init($el, theme, initOptions);
-        if (group) {
-          chart.group = group;
-        }
-        chart.setOption(options, true);
-        // expose ECharts events as custom events
-        ACTION_EVENTS.forEach(function (event) {
-          chart.on(event, function (params) {
-            _this.$emit(event, params);
-          });
-        });
-        MOUSE_EVENTS.forEach(function (event) {
-          chart.on(event, function (params) {
-            _this.$emit(event, params);
-          });
-        });
-        if (autoResize) {
-          window.addEventListener('resize', _resizeHanlder, false);
-        }
-        _this.chart = chart;
-        _this.dataLoading = false;
-      }).catch(function (_) {
-        _this.dataLoading = false;
-      });
-    },
-    _resizeHanlder: function _resizeHanlder() {
-      var _this2 = this;
-
-      window.setTimeout(function () {
-        _this2.chart.resize();
-      }, 100);
-    }
-  },
-  mounted: function mounted() {
-    // auto init if `options` is already provided
-    if (this.options) {
-      this._init();
-    }
-  },
-  beforeDestroy: function beforeDestroy() {
-    if (!this.chart) {
-      return;
-    }
-    if (this.autoResize) {
-      window.removeEventListener('resize', this._resizeHanlder, false);
-    }
-    this.dispose();
-  },
-  connect: function connect(group) {
-    var chart = this.chart;
-
-    if (typeof group !== 'string') {
-      group = group.map(function (chart) {
-        return chart.chart;
-      });
-    }
-    this.chart.connect(group);
-  },
-  disconnect: function disconnect(group) {
-    this.chart.disConnect(group);
-  },
-  registerMap: function registerMap() {
-    var _chart2;
-
-    (_chart2 = this.chart).registerMap.apply(_chart2, arguments);
-  },
-  registerTheme: function registerTheme() {
-    var _chart3;
-
-    (_chart3 = this.chart).registerTheme.apply(_chart3, arguments);
-  }
-};
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    directives: [{
-      name: "loading",
-      rawName: "v-loading",
-      value: (_vm.dataLoading),
-      expression: "dataLoading"
-    }],
-    staticClass: "charts__panel__warp",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "element-loading-text": "玩命加载中..."
-    }
-  })
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-653bd61a", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 3:
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8604,47 +8196,10 @@ Vue$3.nextTick(function () {
 
 /* harmony default export */ __webpack_exports__["default"] = (Vue$3);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2), __webpack_require__(1), __webpack_require__(4).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(0), __webpack_require__(3).setImmediate))
 
 /***/ }),
-
-/***/ 39:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _vue = __webpack_require__(3);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-var _weexVueRender = __webpack_require__(6);
-
-var _weexVueRender2 = _interopRequireDefault(_weexVueRender);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import render-core.
-// import weex from 'weex-vue-render/dist/index.core';
-
-// need to run `npm i weex-vue-slider weex-vue-stream --save` frist.
-// import the plugins (components and modules) you want to use.
-// import slider from 'weex-vue-slider';
-// import stream from 'weex-vue-stream';
-
-// install the plugins.
-// weex.install(slider);
-// weex.install(stream);
-
-_weexVueRender2.default.init(_vue2.default);
-
-var App = __webpack_require__(21);
-App.el = '#root';
-new _vue2.default(App);
-
-/***/ }),
-
-/***/ 4:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -8697,14 +8252,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(5);
+__webpack_require__(4);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-
-/***/ 5:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -8894,11 +8448,10 @@ exports.clearImmediate = clearImmediate;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(1)))
 
 /***/ }),
-
-/***/ 6:
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20732,8 +20285,161 @@ if (global.Vue) {
 }
 
 module.exports = weex;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _vue = __webpack_require__(2);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _weexVueRender = __webpack_require__(5);
+
+var _weexVueRender2 = _interopRequireDefault(_weexVueRender);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import render-core.
+// import weex from 'weex-vue-render/dist/index.core';
+
+// need to run `npm i weex-vue-slider weex-vue-stream --save` frist.
+// import the plugins (components and modules) you want to use.
+// import slider from 'weex-vue-slider';
+// import stream from 'weex-vue-stream';
+
+// install the plugins.
+// weex.install(slider);
+// weex.install(stream);
+
+_weexVueRender2.default.init(_vue2.default);
+
+var App = __webpack_require__(8);
+App.el = '#root';
+new _vue2.default(App);
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(6)(
+  /* script */
+  null,
+  /* template */
+  null,
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/charts/index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+
+module.exports = Component.exports
+
 
 /***/ })
-
-/******/ });
+/******/ ]);

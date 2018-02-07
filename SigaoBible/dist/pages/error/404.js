@@ -155,7 +155,7 @@ exports.default = {
 /***/ 41:
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected character '�' (1:0)\nYou may need an appropriate loader to handle this file type.\n(Source code omitted for this binary file)");
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/pages/error/images/404_error.png'\n    at Error (native)");
 
 /***/ }),
 

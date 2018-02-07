@@ -62,108 +62,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 78);
+/******/ 	return __webpack_require__(__webpack_require__.s = 77);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-/* globals __VUE_SSR_CONTEXT__ */
-
-// this module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 1 */
+/***/ 0:
 /***/ (function(module, exports) {
 
 var g;
@@ -190,7 +94,8 @@ module.exports = g;
 
 
 /***/ }),
-/* 2 */
+
+/***/ 1:
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -380,7 +285,106 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 3 */
+
+/***/ 2:
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 3:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8293,10 +8297,11 @@ Vue$3.nextTick(function () {
 
 /* harmony default export */ __webpack_exports__["default"] = (Vue$3);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2), __webpack_require__(1), __webpack_require__(4).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(0), __webpack_require__(4).setImmediate))
 
 /***/ }),
-/* 4 */
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -8355,7 +8360,8 @@ exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 5 */
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -8545,10 +8551,11 @@ exports.clearImmediate = clearImmediate;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(1)))
 
 /***/ }),
-/* 6 */
+
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20382,1697 +20389,11 @@ if (global.Vue) {
 }
 
 module.exports = weex;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
 
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(8),
-  /* template */
-  __webpack_require__(9),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/mainContent/headerSection/menuRight/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-79313f68", Component.options)
-  } else {
-    hotAPI.reload("data-v-79313f68", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var _vuex = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vuex\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-var _type = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"store/getters/type\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-var _type2 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"store/actions/type\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-var USER_OUT = 0;
-var USER_INFO = 1;
-var USER_SETTING = 2;
-
-exports.default = {
-  computed: _extends({}, (0, _vuex.mapGetters)({
-    get_user_info: _type.GET_USER_INFO
-  })),
-  methods: _extends({}, (0, _vuex.mapActions)({
-    set_user_info: _type2.SET_USER_INFO
-  }), {
-    //退出
-    user_out: function user_out() {
-      var _this = this;
-
-      this.$confirm('此操作将退出登录, 是否继续?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(function () {
-        _this.$fetch.api_user.logout().then(function (_ref) {
-          var msg = _ref.msg;
-
-          _this.$message.success(msg);
-          _this.set_user_info(null);
-          setTimeout(_this.$router.replace({ name: "login" }), 500);
-        });
-      }).catch(function () {});
-    },
-    user_info: function user_info() {
-      //个人信息
-    },
-    user_setting: function user_setting() {
-      //设置
-    },
-    user_click: function user_click(type) {
-      switch (type) {
-        case USER_OUT:
-          //退出
-          this.user_out();
-          break;
-        case USER_INFO:
-          //个人信息
-          break;
-        case USER_SETTING:
-          //设置
-          break;
-      }
-    }
-  })
-};
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.get_user_info.login) ? _c('div', {
-    staticClass: "menu-right",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('div', {
-    staticClass: "notification-menu",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('el-dropdown', {
-    staticClass: "notification-list",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "trigger": "click"
-    }
-  }, [_c('div', {
-    staticClass: "notification-btn",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('img', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "src": _vm.get_user_info.user.avatar,
-      "alt": _vm.get_user_info.user.name
-    }
-  }), _vm._v(" "), _c('span', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    domProps: {
-      "textContent": _vm._s(_vm.get_user_info.user.name)
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "icon",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  })]), _vm._v(" "), _c('el-dropdown-menu', {
-    staticClass: "dropdown-menu",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "slot": "dropdown"
-    },
-    slot: "dropdown"
-  }, [_c('el-dropdown-item', {
-    staticClass: "dropdown-list",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('a', {
-    staticClass: "dropdown-btn",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "href": "javascript:"
-    },
-    on: {
-      "click": function($event) {
-        _vm.user_click(0)
-      }
-    }
-  }, [_c('i', {
-    staticClass: "icon fa fa-user",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }), _vm._v(" "), _c('span', [_vm._v("个人信息")])])]), _vm._v(" "), _c('el-dropdown-item', {
-    staticClass: "dropdown-list",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('a', {
-    staticClass: "dropdown-btn",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "href": "javascript:"
-    },
-    on: {
-      "click": function($event) {
-        _vm.user_click(0)
-      }
-    }
-  }, [_c('i', {
-    staticClass: "icon fa fa-cog",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }), _vm._v(" "), _c('span', [_vm._v("设置")])])]), _vm._v(" "), _c('el-dropdown-item', {
-    staticClass: "dropdown-list",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('a', {
-    staticClass: "dropdown-btn",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "href": "javascript:"
-    },
-    on: {
-      "click": function($event) {
-        _vm.user_click(0)
-      }
-    }
-  }, [_c('i', {
-    staticClass: "icon fa fa-sign-out",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }), _vm._v(" "), _c('span', [_vm._v("安全退出")])])])], 1)], 1)], 1)]) : _vm._e()
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-79313f68", module.exports)
-  }
-}
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(11),
-  /* template */
-  __webpack_require__(12),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/search/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-efb068a6", Component.options)
-  } else {
-    hotAPI.reload("data-v-efb068a6", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-  props: {
-    placeholder: {
-      type: String,
-      default: "Search here..."
-    }
-  },
-  data: function data() {
-    return {
-      formValue: ''
-    };
-  },
-
-  computed: {
-    valueIsNull: function valueIsNull() {
-      return this.formValue.trim() === '';
-    }
-  },
-  methods: {
-    submit_form: function submit_form() {
-      !this.valueIsNull && this.$emit('search', this.formValue);
-      return false;
-    }
-  }
-};
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('form', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "submit": function($event) {
-        $event.preventDefault();
-        _vm.submit_form($event)
-      }
-    }
-  }, [_c('el-input', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "placeholder": _vm.placeholder
-    },
-    model: {
-      value: (_vm.formValue),
-      callback: function($$v) {
-        _vm.formValue = $$v
-      },
-      expression: "formValue"
-    }
-  })], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-efb068a6", module.exports)
-  }
-}
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(14),
-  /* template */
-  __webpack_require__(15),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/mainContent/footer/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-348bb68f", Component.options)
-  } else {
-    hotAPI.reload("data-v-348bb68f", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-//
-//
-//
-
-exports.default = {
-  computed: {
-    getYear: function getYear() {
-      return new Date().getFullYear();
-    }
-  }
-};
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('footer', {
-    staticClass: "footer",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("Copyright © " + _vm._s(_vm.getYear) + " zzmhot All Rights Reserved")])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-348bb68f", module.exports)
-  }
-}
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(17),
-  /* template */
-  __webpack_require__(18),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/mainContent/headerSection/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-006e720c", Component.options)
-  } else {
-    hotAPI.reload("data-v-006e720c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _menuRight = __webpack_require__(7);
-
-var _menuRight2 = _interopRequireDefault(_menuRight);
-
-var _search = __webpack_require__(10);
-
-var _search2 = _interopRequireDefault(_search);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-  components: {
-    menuRight: _menuRight2.default,
-    search: _search2.default
-  },
-  methods: {
-    submit_search: function submit_search(value) {
-      this.$message.success(value);
-    }
-  }
-};
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "header-section",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('div', {
-    staticClass: "search",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('search', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "search": _vm.submit_search
-    }
-  })], 1), _vm._v(" "), _c('menu-right')], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-006e720c", module.exports)
-  }
-}
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  null,
-  /* template */
-  __webpack_require__(20),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/bottomToolBar/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-efe38cbe", Component.options)
-  } else {
-    hotAPI.reload("data-v-efe38cbe", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "bottom-toolbar ofh",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('el-row', [_c('el-col', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "span": 24
-    }
-  }, [_c('div', {
-    staticClass: "fl",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._t("handler")], 2), _vm._v(" "), _c('div', {
-    staticClass: "fr",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._t("page")], 2)])], 1)], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-efe38cbe", module.exports)
-  }
-}
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!vue-style-loader!css-loader?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-compiler/index?{\"vue\":true,\"id\":\"data-v-653bd61a\",\"scoped\":false,\"hasInlineConfig\":false}!sass-loader?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/selector?type=styles&index=0!./index.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(22),
-  /* template */
-  __webpack_require__(23),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/charts/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-653bd61a", Component.options)
-  } else {
-    hotAPI.reload("data-v-653bd61a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-// enumerating ECharts events for now
-var ACTION_EVENTS = ['legendselectchanged', 'legendselected', 'legendunselected', 'datazoom', 'datarangeselected', 'timelinechanged', 'timelineplaychanged', 'restore', 'dataviewchanged', 'magictypechanged', 'geoselectchanged', 'geoselected', 'geounselected', 'pieselectchanged', 'pieselected', 'pieunselected', 'mapselectchanged', 'mapselected', 'mapunselected', 'axisareaselected', 'brush', 'brushselected'];
-var MOUSE_EVENTS = ['click', 'dblclick', 'mouseover', 'mouseout', 'mousedown', 'mouseup', 'globalout'];
-exports.default = {
-  props: {
-    options: Object,
-    theme: String,
-    initOptions: Object,
-    group: String,
-    autoResize: Boolean,
-    modules: Array
-  },
-  data: function data() {
-    return {
-      chart: null,
-      dataLoading: true
-    };
-  },
-
-  computed: {
-    // Only recalculated when accessed from JavaScript.
-    // Won't update DOM on value change because getters
-    // don't depend on reactive values
-    width: {
-      cache: false,
-      get: function get() {
-        return this.chart.getWidth();
-      }
-    },
-    height: {
-      cache: false,
-      get: function get() {
-        return this.chart.getHeight();
-      }
-    },
-    isDisposed: {
-      cache: false,
-      get: function get() {
-        return this.chart.isDisposed();
-      }
-    }
-  },
-  watch: {
-    // use assign statements to tigger "options" and "group" setters
-    options: {
-      handler: function handler(options) {
-        if (!this.chart && options) {
-          this._init();
-        } else {
-          this.chart.setOption(this.options, true);
-        }
-      },
-
-      deep: true
-    },
-    group: {
-      handler: function handler(group) {
-        this.chart.group = group;
-      }
-    }
-  },
-  methods: {
-    // provide a explicit merge option method
-    mergeOptions: function mergeOptions(options) {
-      this._delegateMethod('setOption', options);
-    },
-
-    // just delegates ECharts methods to Vue component
-    // use explicit params to reduce transpiled size for now
-    resize: function resize(options) {
-      this._delegateMethod('resize', options);
-    },
-    dispatchAction: function dispatchAction(payload) {
-      this._delegateMethod('dispatchAction', payload);
-    },
-    convertToPixel: function convertToPixel(finder, value) {
-      return this._delegateMethod('convertToPixel', finder, value);
-    },
-    convertFromPixel: function convertFromPixel(finder, value) {
-      return this._delegateMethod('convertFromPixel', finder, value);
-    },
-    containPixel: function containPixel(finder, value) {
-      return this._delegateMethod('containPixel', finder, value);
-    },
-    showLoading: function showLoading(type, options) {
-      this._delegateMethod('showLoading', type, options);
-    },
-    hideLoading: function hideLoading() {
-      this._delegateMethod('hideLoading');
-    },
-    getDataURL: function getDataURL(options) {
-      return this._delegateMethod('getDataURL', options);
-    },
-    getConnectedDataURL: function getConnectedDataURL(options) {
-      return this._delegateMethod('getConnectedDataURL', options);
-    },
-    clear: function clear() {
-      this._delegateMethod('clear');
-    },
-    dispose: function dispose() {
-      this._delegateMethod('dispose');
-    },
-    _delegateMethod: function _delegateMethod(name) {
-      var _chart;
-
-      if (!this.chart) {
-        return;
-      }
-
-      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        args[_key - 1] = arguments[_key];
-      }
-
-      return (_chart = this.chart)[name].apply(_chart, args);
-    },
-    _init: function _init() {
-      var _this = this;
-
-      if (this.chart) return false;
-
-      this.dataLoading = true;
-      /**
-       * 按需引入 ECharts 图表组件
-       * doc: http://echarts.baidu.com
-       */
-      Promise.reject(function webpackMissingModule() { var e = new Error("Cannot find module \"echarts\""); e.code = 'MODULE_NOT_FOUND';; return e; }()).then(function (_ref) {
-        var init = _ref.init;
-        var $el = _this.$el,
-            theme = _this.theme,
-            initOptions = _this.initOptions,
-            group = _this.group,
-            options = _this.options,
-            autoResize = _this.autoResize,
-            _resizeHanlder = _this._resizeHanlder;
-
-        var chart = init($el, theme, initOptions);
-        if (group) {
-          chart.group = group;
-        }
-        chart.setOption(options, true);
-        // expose ECharts events as custom events
-        ACTION_EVENTS.forEach(function (event) {
-          chart.on(event, function (params) {
-            _this.$emit(event, params);
-          });
-        });
-        MOUSE_EVENTS.forEach(function (event) {
-          chart.on(event, function (params) {
-            _this.$emit(event, params);
-          });
-        });
-        if (autoResize) {
-          window.addEventListener('resize', _resizeHanlder, false);
-        }
-        _this.chart = chart;
-        _this.dataLoading = false;
-      }).catch(function (_) {
-        _this.dataLoading = false;
-      });
-    },
-    _resizeHanlder: function _resizeHanlder() {
-      var _this2 = this;
-
-      window.setTimeout(function () {
-        _this2.chart.resize();
-      }, 100);
-    }
-  },
-  mounted: function mounted() {
-    // auto init if `options` is already provided
-    if (this.options) {
-      this._init();
-    }
-  },
-  beforeDestroy: function beforeDestroy() {
-    if (!this.chart) {
-      return;
-    }
-    if (this.autoResize) {
-      window.removeEventListener('resize', this._resizeHanlder, false);
-    }
-    this.dispose();
-  },
-  connect: function connect(group) {
-    var chart = this.chart;
-
-    if (typeof group !== 'string') {
-      group = group.map(function (chart) {
-        return chart.chart;
-      });
-    }
-    this.chart.connect(group);
-  },
-  disconnect: function disconnect(group) {
-    this.chart.disConnect(group);
-  },
-  registerMap: function registerMap() {
-    var _chart2;
-
-    (_chart2 = this.chart).registerMap.apply(_chart2, arguments);
-  },
-  registerTheme: function registerTheme() {
-    var _chart3;
-
-    (_chart3 = this.chart).registerTheme.apply(_chart3, arguments);
-  }
-};
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    directives: [{
-      name: "loading",
-      rawName: "v-loading",
-      value: (_vm.dataLoading),
-      expression: "dataLoading"
-    }],
-    staticClass: "charts__panel__warp",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "element-loading-text": "玩命加载中..."
-    }
-  })
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-653bd61a", module.exports)
-  }
-}
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(25),
-  /* template */
-  __webpack_require__(26),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/leftSlide/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-dd08d94a", Component.options)
-  } else {
-    hotAPI.reload("data-v-dd08d94a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-  name: 'slide',
-  data: function data() {
-    return {
-      nav_menu_data: [{
-        title: "主页",
-        path: "/home",
-        icon: "fa-home"
-      }, {
-        title: "表格管理",
-        path: "/table",
-        icon: "fa-table",
-        child: [{
-          title: "基本表格",
-          path: "/table/base"
-        }, {
-          title: "排序表格",
-          path: "/table/sort"
-        }]
-      }, {
-        title: "图表管理",
-        path: "/charts",
-        icon: "fa-bar-chart-o",
-        child: [{
-          title: "柱状图表",
-          path: "/charts/bar"
-        }]
-      }]
-    };
-  }
-};
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "left-side",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('div', {
-    staticClass: "left-side-inner",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('router-link', {
-    staticClass: "logo block",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "to": "/"
-    }
-  }, [_c('img', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "src": __webpack_require__(27),
-      "alt": "AdminX"
-    }
-  })]), _vm._v(" "), _c('el-menu', {
-    staticClass: "menu-box",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "theme": "dark",
-      "router": "",
-      "default-active": _vm.$route.path
-    }
-  }, _vm._l((_vm.nav_menu_data), function(item, index) {
-    return _c('div', {
-      key: index,
-      staticStyle: _vm.$processStyle(undefined),
-      style: (_vm.$processStyle(undefined))
-    }, [(typeof item.child === 'undefined') ? _c('el-menu-item', {
-      staticClass: "menu-list",
-      staticStyle: _vm.$processStyle(undefined),
-      style: (_vm.$processStyle(undefined)),
-      attrs: {
-        "index": item.path
-      }
-    }, [_c('i', {
-      staticClass: "icon fa",
-      class: item.icon,
-      staticStyle: _vm.$processStyle(undefined),
-      style: (_vm.$processStyle(undefined))
-    }), _vm._v(" "), _c('span', {
-      staticClass: "text",
-      staticStyle: _vm.$processStyle(undefined),
-      style: (_vm.$processStyle(undefined)),
-      domProps: {
-        "textContent": _vm._s(item.title)
-      }
-    })]) : _c('el-submenu', {
-      staticStyle: _vm.$processStyle(undefined),
-      style: (_vm.$processStyle(undefined)),
-      attrs: {
-        "index": item.path
-      }
-    }, [_c('template', {
-      staticStyle: _vm.$processStyle(undefined),
-      style: (_vm.$processStyle(undefined)),
-      slot: "title"
-    }, [_c('i', {
-      staticClass: "icon fa",
-      class: item.icon,
-      staticStyle: _vm.$processStyle(undefined),
-      style: (_vm.$processStyle(undefined))
-    }), _vm._v(" "), _c('span', {
-      staticClass: "text",
-      staticStyle: _vm.$processStyle(undefined),
-      style: (_vm.$processStyle(undefined)),
-      domProps: {
-        "textContent": _vm._s(item.title)
-      }
-    })]), _vm._v(" "), _vm._l((item.child), function(sub_item, sub_index) {
-      return _c('el-menu-item', {
-        key: sub_index,
-        staticClass: "menu-list",
-        staticStyle: _vm.$processStyle(undefined),
-        style: (_vm.$processStyle(undefined)),
-        attrs: {
-          "index": sub_item.path
-        }
-      }, [_c('span', {
-        staticClass: "text",
-        staticStyle: _vm.$processStyle(undefined),
-        style: (_vm.$processStyle(undefined)),
-        domProps: {
-          "textContent": _vm._s(sub_item.title)
-        }
-      })])
-    })], 2)], 1)
-  }))], 1)])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-dd08d94a", module.exports)
-  }
-}
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-throw new Error("Module parse failed: Unexpected character '�' (1:0)\nYou may need an appropriate loader to handle this file type.\n(Source code omitted for this binary file)");
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(29),
-  /* template */
-  __webpack_require__(30),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/mainContent/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6b4b261e", Component.options)
-  } else {
-    hotAPI.reload("data-v-6b4b261e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _headerSection = __webpack_require__(16);
-
-var _headerSection2 = _interopRequireDefault(_headerSection);
-
-var _footer = __webpack_require__(13);
-
-var _footer2 = _interopRequireDefault(_footer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-  name: 'content',
-  components: {
-    hSection: _headerSection2.default,
-    vFooter: _footer2.default
-  }
-};
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "main-content ofh",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('el-row', [_c('el-col', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "span": 24
-    }
-  }, [_c('h-section'), _vm._v(" "), _c('div', {
-    staticClass: "wrapper",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('div', {
-    staticClass: "pageContent",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('el-row', [_c('el-col', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "span": 24
-    }
-  }, [_vm._t("default")], 2)], 1)], 1)]), _vm._v(" "), _c('v-footer')], 1)], 1)], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-6b4b261e", module.exports)
-  }
-}
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(32),
-  /* template */
-  __webpack_require__(33),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/panelTitle/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-10d7ccb9", Component.options)
-  } else {
-    hotAPI.reload("data-v-10d7ccb9", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-  props: {
-    title: {
-      type: String
-    }
-  }
-};
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "panel-title",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [(_vm.title) ? _c('span', {
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    domProps: {
-      "textContent": _vm._s(_vm.title)
-    }
-  }) : _vm._e(), _vm._v(" "), _c('div', {
-    staticClass: "fr",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._t("default")], 2)])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-10d7ccb9", module.exports)
-  }
-}
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!vue-style-loader!css-loader?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-compiler/index?{\"vue\":true,\"id\":\"data-v-6456399b\",\"scoped\":false,\"hasInlineConfig\":false}!sass-loader?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/selector?type=styles&index=0!./index.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(35),
-  /* template */
-  __webpack_require__(36),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/simpleImageUpload/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6456399b", Component.options)
-  } else {
-    hotAPI.reload("data-v-6456399b", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-  props: {
-    action: {
-      type: String,
-      require: true
-    },
-    headers: {
-      type: Object
-    },
-    multiple: {
-      type: Boolean,
-      default: false
-    },
-    data: {
-      type: Object
-    },
-    name: {
-      type: String,
-      default: 'file'
-    },
-    withCredentials: {
-      type: Boolean,
-      default: false
-    },
-    showFileList: {
-      type: Boolean,
-      default: false
-    },
-    drag: {
-      type: Boolean,
-      default: false
-    },
-    accept: {
-      type: String
-    },
-    onPreview: {
-      type: Function
-    },
-    onSuccess: {
-      type: Function
-    },
-    onRemove: {
-      type: Function
-    },
-    beforeUpload: {
-      type: Function
-    }
-  },
-  data: function data() {
-    return {
-      upload_file: null
-    };
-  }
-};
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('el-upload', {
-    staticClass: "image-uploader-warp",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "action": _vm.action,
-      "headers": _vm.headers,
-      "multiple": _vm.multiple,
-      "data": _vm.data,
-      "name": _vm.name,
-      "with-credentials": _vm.withCredentials,
-      "show-file-list": _vm.showFileList,
-      "drag": _vm.drag,
-      "accept": _vm.accept,
-      "on-preview": _vm.onPreview,
-      "on-success": _vm.onSuccess,
-      "on-remove": _vm.onRemove,
-      "before-upload": _vm.beforeUpload
-    }
-  }, [_c('div', {
-    staticClass: "el-upload-icon",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._t("default")], 2)])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-6456399b", module.exports)
-  }
-}
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.charts = exports.bottomToolBar = exports.simpleImageUpload = exports.panelTitle = exports.mainContent = exports.leftSlide = undefined;
-
-var _leftSlide = __webpack_require__(24);
-
-var _leftSlide2 = _interopRequireDefault(_leftSlide);
-
-var _mainContent = __webpack_require__(28);
-
-var _mainContent2 = _interopRequireDefault(_mainContent);
-
-var _panelTitle = __webpack_require__(31);
-
-var _panelTitle2 = _interopRequireDefault(_panelTitle);
-
-var _simpleImageUpload = __webpack_require__(34);
-
-var _simpleImageUpload2 = _interopRequireDefault(_simpleImageUpload);
-
-var _bottomToolBar = __webpack_require__(19);
-
-var _bottomToolBar2 = _interopRequireDefault(_bottomToolBar);
-
-var _charts = __webpack_require__(21);
-
-var _charts2 = _interopRequireDefault(_charts);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Created by zzmhot on 2017/3/23.
- *
- * 组件
- *
- * @author: zzmhot
- * @github: https://github.com/zzmhot
- * @email: zzmhot@163.com
- * @Date: 2017/3/23 18:41
- * @Copyright(©) 2017 by zzmhot.
- *
- */
-
-exports.leftSlide = _leftSlide2.default;
-exports.mainContent = _mainContent2.default;
-exports.panelTitle = _panelTitle2.default;
-exports.simpleImageUpload = _simpleImageUpload2.default;
-exports.bottomToolBar = _bottomToolBar2.default;
-exports.charts = _charts2.default;
-
-/***/ }),
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */
+/***/ 77:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22102,20 +20423,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _weexVueRender2.default.init(_vue2.default);
 
-var App = __webpack_require__(79);
+var App = __webpack_require__(78);
 App.el = '#root';
 new _vue2.default(App);
 
 /***/ }),
-/* 79 */
+
+/***/ 78:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var Component = __webpack_require__(0)(
+var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(80),
+  __webpack_require__(79),
   /* template */
-  __webpack_require__(81),
+  __webpack_require__(80),
   /* styles */
   null,
   /* scopeId */
@@ -22147,7 +20469,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 80 */
+
+/***/ 79:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22157,7 +20480,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _components = __webpack_require__(37);
+var _components = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"components\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 exports.default = {
   data: function data() {
@@ -22289,7 +20612,8 @@ exports.default = {
 //
 
 /***/ }),
-/* 81 */
+
+/***/ 80:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22487,4 +20811,13 @@ if (false) {
 }
 
 /***/ })
-/******/ ]);
+
+/******/ });ot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-5d6d0a70", module.exports)
+  }
+}
+
+/***/ })
+
+/******/ });

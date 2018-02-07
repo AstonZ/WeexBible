@@ -62,26 +62,16 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 26:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 4:
+/***/ (function(module, exports) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!../../../node_modules/weex-vue-loader/lib/style-loader!sass-loader?{\"sourceMap\":false}!../../../node_modules/weex-vue-loader/lib/style-rewriter?id=data-v-4e39484d!../../../node_modules/weex-vue-loader/lib/selector?type=styles&index=0!./index.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(27)
-
-/* template */
-var __vue_template__ = __webpack_require__(28)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -94,9 +84,6 @@ if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
 __vue_options__.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/simpleImageUpload/index.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-50cea505"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -113,123 +100,6 @@ module.exports = __vue_exports__
 module.exports.el = 'true'
 new Vue(module.exports)
 
-
-/***/ }),
-
-/***/ 27:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-  props: {
-    action: {
-      type: String,
-      require: true
-    },
-    headers: {
-      type: Object
-    },
-    multiple: {
-      type: Boolean,
-      default: false
-    },
-    data: {
-      type: Object
-    },
-    name: {
-      type: String,
-      default: 'file'
-    },
-    withCredentials: {
-      type: Boolean,
-      default: false
-    },
-    showFileList: {
-      type: Boolean,
-      default: false
-    },
-    drag: {
-      type: Boolean,
-      default: false
-    },
-    accept: {
-      type: String
-    },
-    onPreview: {
-      type: Function
-    },
-    onSuccess: {
-      type: Function
-    },
-    onRemove: {
-      type: Function
-    },
-    beforeUpload: {
-      type: Function
-    }
-  },
-  data: function data() {
-    return {
-      upload_file: null
-    };
-  }
-};
-
-/***/ }),
-
-/***/ 28:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('el-upload', {
-    staticClass: ["image-uploader-warp"],
-    attrs: {
-      "action": _vm.action,
-      "headers": _vm.headers,
-      "multiple": _vm.multiple,
-      "data": _vm.data,
-      "name": _vm.name,
-      "withCredentials": _vm.withCredentials,
-      "showFileList": _vm.showFileList,
-      "drag": _vm.drag,
-      "accept": _vm.accept,
-      "onPreview": _vm.onPreview,
-      "onSuccess": _vm.onSuccess,
-      "onRemove": _vm.onRemove,
-      "beforeUpload": _vm.beforeUpload
-    }
-  }, [_c('div', {
-    staticClass: ["el-upload-icon"]
-  }, [_vm._t("default")], 2)])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
 
 /***/ })
 

@@ -7,7 +7,7 @@
  * @Date: 2017/7/3 15:55.
  *
  */
--->
+
 <template>
   <div class="charts__panel__warp" v-loading="dataLoading" element-loading-text="玩命加载中..."></div>
 </template>
@@ -226,3 +226,4 @@
 </script>
 <style lang="scss" type="text/scss" rel="stylesheet/scss">
 </style>
+-->
