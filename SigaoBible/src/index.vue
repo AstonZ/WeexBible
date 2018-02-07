@@ -19,13 +19,13 @@
         <div class="input-img"></div>
       </div>
       <div class="input-wrapper">
-        <div class="input-login" onclick="login">
+        <div class="input-login" @click="login">
           <text class="input-login-text">Login</text>
         </div>
       </div>
       <div class="input-wrapper">
-        <text class="input-forget" onclick="findPassword">Find password</text>
-        <text class="input-register" onclick="register">Register</text>    
+        <text class="input-forget" @click="findPassword">Find password</text>
+        <text class="input-register" @click="register">Register</text>    
       </div>
     </div>
   </div>

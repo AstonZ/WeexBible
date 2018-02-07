@@ -62,26 +62,22 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 29:
+/***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
-/* styles */
-__vue_styles__.push(__webpack_require__(30)
-)
-
 /* script */
-__vue_exports__ = __webpack_require__(31)
+__vue_exports__ = __webpack_require__(18)
 
 /* template */
-var __vue_template__ = __webpack_require__(32)
+var __vue_template__ = __webpack_require__(19)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -93,10 +89,9 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/index.vue"
+__vue_options__.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/mainContent/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-31c89411"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -116,95 +111,26 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 30:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "wrapper": {
-    "position": "absolute",
-    "top": 0,
-    "right": 0,
-    "bottom": 0,
-    "left": 0
-  },
-  "login": {
-    "marginTop": "180"
-  },
-  "input-wrapper": {
-    "width": "550",
-    "marginLeft": "100",
-    "marginRight": "100",
-    "marginBottom": "30"
-  },
-  "input": {
-    "fontSize": "30",
-    "height": "80",
-    "width": "550",
-    "paddingLeft": "90",
-    "paddingTop": "15",
-    "borderWidth": "1",
-    "borderColor": "#48c9bf",
-    "borderRadius": "10",
-    "outline": "none"
-  },
-  "input-img": {
-    "position": "absolute",
-    "top": "10",
-    "left": "15",
-    "width": 550,
-    "backgroundColor": "#48c9bf",
-    "borderRadius": "10",
-    "marginTop": "40"
-  },
-  "input-login-text": {
-    "height": "80",
-    "widows": "550",
-    "textAlign": "center",
-    "lineHeight": "80",
-    "color": "#FFFFFF",
-    "fontSize": "35"
-  },
-  "input-login": {
-    "height": "80",
-    "width": "550",
-    "backgroundColor": "#48c9bf",
-    "borderRadius": "10",
-    "marginTop": "40"
-  },
-  "input-forget": {
-    "position": "absolute",
-    "left": "30",
-    "fontSize": "30"
-  },
-  "input-register": {
-    "position": "absolute",
-    "right": "30",
-    "fontSize": "30"
-  }
-}
-
-/***/ }),
-
-/***/ 31:
+/***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _headerSection = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./headerSection\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _headerSection2 = _interopRequireDefault(_headerSection);
+
+var _footer = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./footer\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _footer2 = _interopRequireDefault(_footer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //
 //
 //
@@ -225,100 +151,36 @@ module.exports = {
 //
 //
 
-module.exports = {
-
-  data: {
-    mobile: "",
-    pwd: ""
-  },
-
-  methods: {
-
-    onChangeUserMobile: function onChangeUserMobile(event) {
-      this.mobile = event.value;
-    },
-
-    onChangeUserPassword: function onChangeUserPassword(event) {
-      this.pwd = event.value;
-    },
-
-    findPassword: function findPassword() {
-      console.log("Go Find pwd");
-    },
-
-    register: function register() {
-      console.log("Go register");
-    },
-
-    login: function login() {
-      console.log("mobile = " + this.mobile + "password = " + this.pwd);
-    }
+exports.default = {
+  name: 'content',
+  components: {
+    hSection: _headerSection2.default,
+    vFooter: _footer2.default
   }
 };
 
 /***/ }),
 
-/***/ 32:
+/***/ 19:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
+    staticClass: ["main-content", "ofh"]
+  }, [_c('el-row', [_c('el-col', {
+    attrs: {
+      "span": 24
+    }
+  }, [_c('h-section'), _c('div', {
     staticClass: ["wrapper"]
   }, [_c('div', {
-    staticClass: ["login"]
-  }, [_vm._m(0), _vm._m(1), _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('div', {
-    staticClass: ["input-login"],
-    on: {
-      "click": _vm.login
-    }
-  }, [_c('text', {
-    staticClass: ["input-login-text"]
-  }, [_vm._v("Login")])])]), _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('text', {
-    staticClass: ["input-forget"],
-    on: {
-      "click": _vm.findPassword
-    }
-  }, [_vm._v("Find password")]), _c('text', {
-    staticClass: ["input-register"],
-    on: {
-      "click": _vm.register
-    }
-  }, [_vm._v("Register")])])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('input', {
-    staticClass: ["input"],
+    staticClass: ["pageContent"]
+  }, [_c('el-row', [_c('el-col', {
     attrs: {
-      "type": "text",
-      "placeholder": "Input Mobile",
-      "autofocus": "true",
-      "value": "",
-      "onchange": "onChangeUserMobile"
+      "span": 24
     }
-  }), _c('div', {
-    staticClass: ["input-img"]
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('input', {
-    staticClass: ["input"],
-    attrs: {
-      "type": "text",
-      "placeholder": "Input Password",
-      "autofocus": "true",
-      "value": "",
-      "onchange": "onChangeUserPassword"
-    }
-  }), _c('div', {
-    staticClass: ["input-img"]
-  })])
-}]}
+  }, [_vm._t("default")], 2)], 1)], 1)]), _c('v-footer')], 1)], 1)], 1)
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ })

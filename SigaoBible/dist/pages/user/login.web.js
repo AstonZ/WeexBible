@@ -62,7 +62,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 48);
+/******/ 	return __webpack_require__(__webpack_require__.s = 86);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -8361,87 +8361,6 @@ exports.clearImmediate = clearImmediate;
 
 /***/ }),
 
-/***/ 48:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _vue = __webpack_require__(3);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-var _weexVueRender = __webpack_require__(6);
-
-var _weexVueRender2 = _interopRequireDefault(_weexVueRender);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import render-core.
-// import weex from 'weex-vue-render/dist/index.core';
-
-// need to run `npm i weex-vue-slider weex-vue-stream --save` frist.
-// import the plugins (components and modules) you want to use.
-// import slider from 'weex-vue-slider';
-// import stream from 'weex-vue-stream';
-
-// install the plugins.
-// weex.install(slider);
-// weex.install(stream);
-
-_weexVueRender2.default.init(_vue2.default);
-
-var App = __webpack_require__(49);
-App.el = '#root';
-new _vue2.default(App);
-
-/***/ }),
-
-/***/ 49:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(50)
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(55),
-  /* template */
-  __webpack_require__(56),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6614508a", Component.options)
-  } else {
-    hotAPI.reload("data-v-6614508a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
 /***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8633,555 +8552,6 @@ module.exports = Component.exports
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(2)))
-
-/***/ }),
-
-/***/ 50:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(51);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(53)("c62e4d02", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6614508a\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
-     var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6614508a\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 51:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(52)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.wrapper {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n.login {\n  margin-top: 180px;\n}\n.input-wrapper {\n  width: 550px;\n  margin-left: 100px;\n  margin-right: 100px;\n  margin-bottom: 30px;\n}\n.input {\n  font-size: 30px;\n  height: 80px;\n  width: 550px;\n  padding-left: 90px;\n  padding-top: 15px;\n  border-width: 1px;\n  border-color: #48c9bf;\n  border-radius: 10px;\n  outline: none;\n}\n.input-img {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n  width:550;\n  background-color: #48c9bf;\n  border-radius: 10px;\n  margin-top: 40px;\n}\n.input-login-text {\n  height: 80px;\n  widows: 550px;\n  text-align: center;\n  line-height: 80px;\n  color: white;\n  font-size: 35px;\n}\n.input-login {\n  height: 80px;\n  width: 550px;\n  background-color: #48c9bf;\n  border-radius: 10px;\n  margin-top: 40px;\n}\n.input-forget {\n  position: absolute;\n  left: 30px;\n  font-size: 30px;\n}\n.input-register {\n  position: absolute;\n  right: 30px;\n  font-size: 30px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 52:
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-
-/***/ 53:
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-
-if (typeof DEBUG !== 'undefined' && DEBUG) {
-  if (!hasDocument) {
-    throw new Error(
-    'vue-style-loader cannot be used in a non-browser environment. ' +
-    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
-  ) }
-}
-
-var listToStyles = __webpack_require__(54)
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-var stylesInDom = {/*
-  [id: number]: {
-    id: number,
-    refs: number,
-    parts: Array<(obj?: StyleObjectPart) => void>
-  }
-*/}
-
-var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
-var singletonElement = null
-var singletonCounter = 0
-var isProduction = false
-var noop = function () {}
-
-// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-// tags it will allow on a page
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
-module.exports = function (parentId, list, _isProduction) {
-  isProduction = _isProduction
-
-  var styles = listToStyles(parentId, list)
-  addStylesToDom(styles)
-
-  return function update (newList) {
-    var mayRemove = []
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i]
-      var domStyle = stylesInDom[item.id]
-      domStyle.refs--
-      mayRemove.push(domStyle)
-    }
-    if (newList) {
-      styles = listToStyles(parentId, newList)
-      addStylesToDom(styles)
-    } else {
-      styles = []
-    }
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i]
-      if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]()
-        }
-        delete stylesInDom[domStyle.id]
-      }
-    }
-  }
-}
-
-function addStylesToDom (styles /* Array<StyleObject> */) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var domStyle = stylesInDom[item.id]
-    if (domStyle) {
-      domStyle.refs++
-      for (var j = 0; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j]))
-      }
-      if (domStyle.parts.length > item.parts.length) {
-        domStyle.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j]))
-      }
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement () {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  head.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */) {
-  var update, remove
-  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
-
-  if (styleElement) {
-    if (isProduction) {
-      // has SSR styles and in production mode.
-      // simply do nothing.
-      return noop
-    } else {
-      // has SSR styles but in dev mode.
-      // for some reason Chrome can't handle source map in server-rendered
-      // style tags - source maps in <style> only works if the style tag is
-      // created and inserted dynamically. So we remove the server rendered
-      // styles and inject new ones.
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  if (isOldIE) {
-    // use singleton mode for IE9.
-    var styleIndex = singletonCounter++
-    styleElement = singletonElement || (singletonElement = createStyleElement())
-    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
-    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
-  } else {
-    // use multi-style-tag mode in all other cases
-    styleElement = createStyleElement()
-    update = applyToTag.bind(null, styleElement)
-    remove = function () {
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  update(obj)
-
-  return function updateStyle (newObj /* StyleObjectPart */) {
-    if (newObj) {
-      if (newObj.css === obj.css &&
-          newObj.media === obj.media &&
-          newObj.sourceMap === obj.sourceMap) {
-        return
-      }
-      update(obj = newObj)
-    } else {
-      remove()
-    }
-  }
-}
-
-var replaceText = (function () {
-  var textStore = []
-
-  return function (index, replacement) {
-    textStore[index] = replacement
-    return textStore.filter(Boolean).join('\n')
-  }
-})()
-
-function applyToSingletonTag (styleElement, index, remove, obj) {
-  var css = remove ? '' : obj.css
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = replaceText(index, css)
-  } else {
-    var cssNode = document.createTextNode(css)
-    var childNodes = styleElement.childNodes
-    if (childNodes[index]) styleElement.removeChild(childNodes[index])
-    if (childNodes.length) {
-      styleElement.insertBefore(cssNode, childNodes[index])
-    } else {
-      styleElement.appendChild(cssNode)
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-
-/***/ 54:
-/***/ (function(module, exports) {
-
-/**
- * Translates the list format produced by css-loader into something
- * easier to manipulate.
- */
-module.exports = function listToStyles (parentId, list) {
-  var styles = []
-  var newStyles = {}
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i]
-    var id = item[0]
-    var css = item[1]
-    var media = item[2]
-    var sourceMap = item[3]
-    var part = {
-      id: parentId + ':' + i,
-      css: css,
-      media: media,
-      sourceMap: sourceMap
-    }
-    if (!newStyles[id]) {
-      styles.push(newStyles[id] = { id: id, parts: [part] })
-    } else {
-      newStyles[id].parts.push(part)
-    }
-  }
-  return styles
-}
-
-
-/***/ }),
-
-/***/ 55:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-module.exports = {
-
-  data: {
-    mobile: "",
-    pwd: ""
-  },
-
-  methods: {
-
-    onChangeUserMobile: function onChangeUserMobile(event) {
-      this.mobile = event.value;
-    },
-
-    onChangeUserPassword: function onChangeUserPassword(event) {
-      this.pwd = event.value;
-    },
-
-    findPassword: function findPassword() {
-      console.log("Go Find pwd");
-    },
-
-    register: function register() {
-      console.log("Go register");
-    },
-
-    login: function login() {
-      console.log("mobile = " + this.mobile + "password = " + this.pwd);
-    }
-  }
-};
-
-/***/ }),
-
-/***/ 56:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "wrapper",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('div', {
-    staticClass: "login",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('div', {
-    staticClass: "input-wrapper",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('input', {
-    staticClass: "input",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "type": "text",
-      "placeholder": "Input Mobile",
-      "autofocus": "true",
-      "value": "",
-      "onchange": "onChangeUserMobile"
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "input-img",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "input-wrapper",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('input', {
-    staticClass: "input",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    attrs: {
-      "type": "text",
-      "placeholder": "Input Password",
-      "autofocus": "true",
-      "value": "",
-      "onchange": "onChangeUserPassword"
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "input-img",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "input-wrapper",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('div', {
-    staticClass: "input-login",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "click": _vm.login
-    }
-  }, [_c('text', {
-    staticClass: "input-login-text",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("Login")])])]), _vm._v(" "), _c('div', {
-    staticClass: "input-wrapper",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('text', {
-    staticClass: "input-forget",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "click": _vm.findPassword
-    }
-  }, [_vm._v("Find password")]), _vm._v(" "), _c('text', {
-    staticClass: "input-register",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "click": _vm.register
-    }
-  }, [_vm._v("Register")])])])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-6614508a", module.exports)
-  }
-}
 
 /***/ }),
 
@@ -21020,6 +20390,475 @@ if (global.Vue) {
 
 module.exports = weex;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+
+/***/ 86:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _vue = __webpack_require__(3);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _weexVueRender = __webpack_require__(6);
+
+var _weexVueRender2 = _interopRequireDefault(_weexVueRender);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import render-core.
+// import weex from 'weex-vue-render/dist/index.core';
+
+// need to run `npm i weex-vue-slider weex-vue-stream --save` frist.
+// import the plugins (components and modules) you want to use.
+// import slider from 'weex-vue-slider';
+// import stream from 'weex-vue-stream';
+
+// install the plugins.
+// weex.install(slider);
+// weex.install(stream);
+
+_weexVueRender2.default.init(_vue2.default);
+
+var App = __webpack_require__(87);
+App.el = '#root';
+new _vue2.default(App);
+
+/***/ }),
+
+/***/ 87:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!vue-style-loader!css-loader?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-compiler/index?{\"vue\":true,\"id\":\"data-v-2418f812\",\"scoped\":false,\"hasInlineConfig\":false}!sass-loader?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/selector?type=styles&index=0!./login.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(88),
+  /* template */
+  __webpack_require__(94),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/pages/user/login.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] login.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2418f812", Component.options)
+  } else {
+    hotAPI.reload("data-v-2418f812", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 88:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var _vuex = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vuex\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _port_uri = __webpack_require__(89);
+
+var _type = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"store/actions/type\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+exports.default = {
+  data: function data() {
+    return {
+      form: {
+        username: null,
+        password: null
+      },
+      rules: {
+        username: [{ required: true, message: '请输入账户名！', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入账户密码！', trigger: 'blur' }]
+      },
+      //请求时的loading效果
+      load_data: false
+    };
+  },
+
+  methods: _extends({}, (0, _vuex.mapActions)({
+    set_user_info: _type.SET_USER_INFO
+  }), {
+    //提交
+    submit_form: function submit_form() {
+      var _this = this;
+
+      this.$refs.form.validate(function (valid) {
+        if (!valid) return false;
+        _this.load_data = true;
+        //登录提交
+        _this.$fetch.api_user.login(_this.form).then(function (_ref) {
+          var data = _ref.data,
+              msg = _ref.msg;
+
+          _this.set_user_info({
+            user: data,
+            login: true
+          });
+          _this.$message.success(msg);
+          setTimeout(_this.$router.push({ path: '/' }), 500);
+        }).catch(function (_ref2) {
+          var code = _ref2.code;
+
+          _this.load_data = false;
+          if (code === _port_uri.port_code.error) {
+            _this.$notify.info({
+              title: '温馨提示',
+              message: '账号和密码都为：admin'
+            });
+          }
+        });
+      });
+    }
+  })
+};
+
+/***/ }),
+
+/***/ 89:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.port_file = exports.port_table = exports.port_user = exports.port_code = undefined;
+
+var _code = __webpack_require__(90);
+
+var port_code = _interopRequireWildcard(_code);
+
+var _user = __webpack_require__(91);
+
+var port_user = _interopRequireWildcard(_user);
+
+var _table = __webpack_require__(92);
+
+var port_table = _interopRequireWildcard(_table);
+
+var _file = __webpack_require__(93);
+
+var port_file = _interopRequireWildcard(_file);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+/**
+ * Created by zzmhot on 2017/3/24.
+ *
+ * @author: zzmhot
+ * @github: https://github.com/zzmhot
+ * @email: zzmhot@163.com
+ * @Date: 2017/3/24 14:56
+ * @Copyright(©) 2017 by zzmhot.
+ *
+ */
+
+exports.port_code = port_code;
+exports.port_user = port_user;
+exports.port_table = port_table;
+exports.port_file = port_file;
+
+/***/ }),
+
+/***/ 90:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Created by zzmhot on 2017/3/24.
+ *
+ * 状态管理
+ *
+ * @author: zzmhot
+ * @github: https://github.com/zzmhot
+ * @email: zzmhot@163.com
+ * @Date: 2017/3/24 15:21
+ * @Copyright(©) 2017 by zzmhot.
+ *
+ */
+
+//成功
+var success = exports.success = 0;
+//错误
+var error = exports.error = 1;
+//未登录
+var unlogin = exports.unlogin = 2;
+
+/***/ }),
+
+/***/ 91:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Created by zzmhot on 2017/3/24.
+ *
+ * @author: zzmhot
+ * @github: https://github.com/zzmhot
+ * @email: zzmhot@163.com
+ * @Date: 2017/3/24 14:56
+ * @Copyright(©) 2017 by zzmhot.
+ *
+ */
+
+//用户登录
+var login = exports.login = "/api/post/user/login";
+//用户登出
+var logout = exports.logout = "/api/post/user/logout";
+
+/***/ }),
+
+/***/ 92:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Created by zzmhot on 2017/3/24.
+ *
+ * @author: zzmhot
+ * @github: https://github.com/zzmhot
+ * @email: zzmhot@163.com
+ * @Date: 2017/3/24 16:46
+ * @Copyright(©) 2017 by zzmhot.
+ *
+ */
+
+//数据列表
+var list = exports.list = "/api/get/table/list";
+//根据id查询数据
+var get = exports.get = "/api/get/table/get";
+//根据id删除数据
+var del = exports.del = "/api/post/table/del";
+//添加或修改数据
+var save = exports.save = "/api/post/table/save";
+//批量删除
+var batch_del = exports.batch_del = "/api/post/table/batch/del";
+
+/***/ }),
+
+/***/ 93:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Created by zzmhot on 2017/3/26.
+ *
+ * @author: zzmhot
+ * @github: https://github.com/zzmhot
+ * @email: zzmhot@163.com
+ * @Date: 2017/3/26 15:12
+ * @Copyright(©) 2017 by zzmhot.
+ *
+ */
+
+//图片上传
+var image_upload = exports.image_upload = "/api/post/image/upload";
+
+/***/ }),
+
+/***/ 94:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "login-body",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined))
+  }, [_c('div', {
+    directives: [{
+      name: "loading",
+      rawName: "v-loading",
+      value: (_vm.load_data),
+      expression: "load_data"
+    }],
+    staticClass: "loginWarp",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined)),
+    attrs: {
+      "element-loading-text": "正在登陆中..."
+    },
+    on: {
+      "keyup": function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13, $event.key)) { return null; }
+        _vm.submit_form($event)
+      }
+    }
+  }, [_c('div', {
+    staticClass: "login-title",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined))
+  }, [_c('img', {
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined)),
+    attrs: {
+      "src": __webpack_require__(95)
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "login-form",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined))
+  }, [_c('el-form', {
+    ref: "form",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined)),
+    attrs: {
+      "model": _vm.form,
+      "rules": _vm.rules,
+      "label-width": "0"
+    }
+  }, [_c('el-form-item', {
+    staticClass: "login-item",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined)),
+    attrs: {
+      "prop": "username"
+    }
+  }, [_c('el-input', {
+    staticClass: "form-input",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined)),
+    attrs: {
+      "placeholder": "请输入账户名：",
+      "autofocus": true
+    },
+    model: {
+      value: (_vm.form.username),
+      callback: function($$v) {
+        _vm.$set(_vm.form, "username", $$v)
+      },
+      expression: "form.username"
+    }
+  })], 1), _vm._v(" "), _c('el-form-item', {
+    staticClass: "login-item",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined)),
+    attrs: {
+      "prop": "password"
+    }
+  }, [_c('el-input', {
+    staticClass: "form-input",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined)),
+    attrs: {
+      "type": "password",
+      "placeholder": "请输入账户密码："
+    },
+    model: {
+      value: (_vm.form.password),
+      callback: function($$v) {
+        _vm.$set(_vm.form, "password", $$v)
+      },
+      expression: "form.password"
+    }
+  })], 1), _vm._v(" "), _c('el-form-item', {
+    staticClass: "login-item",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined))
+  }, [_c('el-button', {
+    staticClass: "form-submit",
+    staticStyle: _vm.$processStyle(undefined),
+    style: (_vm.$processStyle(undefined)),
+    attrs: {
+      "size": "large",
+      "icon": "check"
+    },
+    on: {
+      "click": _vm.submit_form
+    }
+  })], 1)], 1)], 1)])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2418f812", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 95:
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected character '�' (1:0)\nYou may need an appropriate loader to handle this file type.\n(Source code omitted for this binary file)");
 
 /***/ })
 

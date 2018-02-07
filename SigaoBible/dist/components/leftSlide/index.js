@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 29:
+/******/ ([
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
-/* styles */
-__vue_styles__.push(__webpack_require__(30)
-)
-
 /* script */
-__vue_exports__ = __webpack_require__(31)
+__vue_exports__ = __webpack_require__(6)
 
 /* template */
-var __vue_template__ = __webpack_require__(32)
+var __vue_template__ = __webpack_require__(7)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -93,10 +93,9 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/index.vue"
+__vue_options__.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/leftSlide/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-31c89411"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -115,82 +114,24 @@ new Vue(module.exports)
 
 
 /***/ }),
-
-/***/ 30:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "wrapper": {
-    "position": "absolute",
-    "top": 0,
-    "right": 0,
-    "bottom": 0,
-    "left": 0
-  },
-  "login": {
-    "marginTop": "180"
-  },
-  "input-wrapper": {
-    "width": "550",
-    "marginLeft": "100",
-    "marginRight": "100",
-    "marginBottom": "30"
-  },
-  "input": {
-    "fontSize": "30",
-    "height": "80",
-    "width": "550",
-    "paddingLeft": "90",
-    "paddingTop": "15",
-    "borderWidth": "1",
-    "borderColor": "#48c9bf",
-    "borderRadius": "10",
-    "outline": "none"
-  },
-  "input-img": {
-    "position": "absolute",
-    "top": "10",
-    "left": "15",
-    "width": 550,
-    "backgroundColor": "#48c9bf",
-    "borderRadius": "10",
-    "marginTop": "40"
-  },
-  "input-login-text": {
-    "height": "80",
-    "widows": "550",
-    "textAlign": "center",
-    "lineHeight": "80",
-    "color": "#FFFFFF",
-    "fontSize": "35"
-  },
-  "input-login": {
-    "height": "80",
-    "width": "550",
-    "backgroundColor": "#48c9bf",
-    "borderRadius": "10",
-    "marginTop": "40"
-  },
-  "input-forget": {
-    "position": "absolute",
-    "left": "30",
-    "fontSize": "30"
-  },
-  "input-register": {
-    "position": "absolute",
-    "right": "30",
-    "fontSize": "30"
-  }
-}
-
-/***/ }),
-
-/***/ 31:
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -225,102 +166,120 @@ module.exports = {
 //
 //
 
-module.exports = {
-
-  data: {
-    mobile: "",
-    pwd: ""
-  },
-
-  methods: {
-
-    onChangeUserMobile: function onChangeUserMobile(event) {
-      this.mobile = event.value;
-    },
-
-    onChangeUserPassword: function onChangeUserPassword(event) {
-      this.pwd = event.value;
-    },
-
-    findPassword: function findPassword() {
-      console.log("Go Find pwd");
-    },
-
-    register: function register() {
-      console.log("Go register");
-    },
-
-    login: function login() {
-      console.log("mobile = " + this.mobile + "password = " + this.pwd);
-    }
+exports.default = {
+  name: 'slide',
+  data: function data() {
+    return {
+      nav_menu_data: [{
+        title: "主页",
+        path: "/home",
+        icon: "fa-home"
+      }, {
+        title: "表格管理",
+        path: "/table",
+        icon: "fa-table",
+        child: [{
+          title: "基本表格",
+          path: "/table/base"
+        }, {
+          title: "排序表格",
+          path: "/table/sort"
+        }]
+      }, {
+        title: "图表管理",
+        path: "/charts",
+        icon: "fa-bar-chart-o",
+        child: [{
+          title: "柱状图表",
+          path: "/charts/bar"
+        }]
+      }]
+    };
   }
 };
 
 /***/ }),
-
-/***/ 32:
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["wrapper"]
+    staticClass: ["left-side"]
   }, [_c('div', {
-    staticClass: ["login"]
-  }, [_vm._m(0), _vm._m(1), _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('div', {
-    staticClass: ["input-login"],
-    on: {
-      "click": _vm.login
-    }
-  }, [_c('text', {
-    staticClass: ["input-login-text"]
-  }, [_vm._v("Login")])])]), _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('text', {
-    staticClass: ["input-forget"],
-    on: {
-      "click": _vm.findPassword
-    }
-  }, [_vm._v("Find password")]), _c('text', {
-    staticClass: ["input-register"],
-    on: {
-      "click": _vm.register
-    }
-  }, [_vm._v("Register")])])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('input', {
-    staticClass: ["input"],
+    staticClass: ["left-side-inner"]
+  }, [_c('router-link', {
+    staticClass: ["logo", "block"],
     attrs: {
-      "type": "text",
-      "placeholder": "Input Mobile",
-      "autofocus": "true",
-      "value": "",
-      "onchange": "onChangeUserMobile"
+      "to": "/"
     }
-  }), _c('div', {
-    staticClass: ["input-img"]
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('input', {
-    staticClass: ["input"],
+  }, [_c('img', {
     attrs: {
-      "type": "text",
-      "placeholder": "Input Password",
-      "autofocus": "true",
-      "value": "",
-      "onchange": "onChangeUserPassword"
+      "src": "./images/logo.png",
+      "alt": "AdminX"
     }
-  }), _c('div', {
-    staticClass: ["input-img"]
-  })])
-}]}
+  })]), _c('el-menu', {
+    staticClass: ["menu-box"],
+    attrs: {
+      "theme": "dark",
+      "router": "",
+      "defaultActive": _vm.$route.path
+    }
+  }, _vm._l((_vm.nav_menu_data), function(item, index) {
+    return _c('div', {
+      key: index
+    }, [(typeof item.child === 'undefined') ? _c('el-menu-item', {
+      staticClass: ["menu-list"],
+      attrs: {
+        "index": item.path
+      }
+    }, [_c('i', {
+      staticClass: ["icon", "fa"],
+      class: item.icon
+    }), _c('span', {
+      directives: [{
+        name: "text",
+        rawName: "v-text",
+        value: (item.title),
+        expression: "item.title"
+      }],
+      staticClass: ["text"]
+    })], 1) : _c('el-submenu', {
+      attrs: {
+        "index": item.path
+      }
+    }, [_c('template', {
+      slot: "title"
+    }, [_c('i', {
+      staticClass: ["icon", "fa"],
+      class: item.icon
+    }), _c('span', {
+      directives: [{
+        name: "text",
+        rawName: "v-text",
+        value: (item.title),
+        expression: "item.title"
+      }],
+      staticClass: ["text"]
+    })], 1), _vm._l((item.child), function(sub_item, sub_index) {
+      return _c('el-menu-item', {
+        key: sub_index,
+        staticClass: ["menu-list"],
+        attrs: {
+          "index": sub_item.path
+        }
+      }, [_c('span', {
+        directives: [{
+          name: "text",
+          rawName: "v-text",
+          value: (sub_item.title),
+          expression: "sub_item.title"
+        }],
+        staticClass: ["text"]
+      })])
+    })], 2)], 1)
+  }))], 1)])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ })
-
-/******/ });
+/******/ ]);

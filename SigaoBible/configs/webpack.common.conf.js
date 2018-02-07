@@ -93,8 +93,20 @@ const webConfig = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': helper.resolve('src'),
+      // 'vue$':'vue/dist/vue.esm.js',
+      'src': helper.resolve('src'),
+      'assets': helper.resolve('src/assets'),
+      'components': helper.resolve('src/components'),
+      'common': helper.resolve('src/common')
+      // 'vuex-a': resolve('src/app/vuex'),
+      // 'vuex-m': resolve('src/m/vuex'),
+      // 'directive': resolve('src/directive'),
+      // 'filters': resolve('src/filters'),
+      // 'app': resolve('src/app'),
+      // 'm': resolve('src/m')
     }
   },
+
   /*
    * Options affecting the resolving of modules.
    *
@@ -141,6 +153,8 @@ const webConfig = {
    */
   plugins: plugins
 };
+
+
 // Config for compile jsbundle for native.
 const weexConfig = {
   entry: weexEntry,

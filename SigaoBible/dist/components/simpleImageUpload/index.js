@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 29:
+/***/ 26:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(30)
+__vue_styles__.push(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!../../../node_modules/weex-vue-loader/lib/style-loader!sass-loader?{\"sourceMap\":false}!../../../node_modules/weex-vue-loader/lib/style-rewriter?id=data-v-4e39484d!../../../node_modules/weex-vue-loader/lib/selector?type=styles&index=0!./index.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(31)
+__vue_exports__ = __webpack_require__(27)
 
 /* template */
-var __vue_template__ = __webpack_require__(32)
+var __vue_template__ = __webpack_require__(28)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -93,10 +93,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/index.vue"
+__vue_options__.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/simpleImageUpload/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-31c89411"
+__vue_options__._scopeId = "data-v-50cea505"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -116,93 +116,15 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 30:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "wrapper": {
-    "position": "absolute",
-    "top": 0,
-    "right": 0,
-    "bottom": 0,
-    "left": 0
-  },
-  "login": {
-    "marginTop": "180"
-  },
-  "input-wrapper": {
-    "width": "550",
-    "marginLeft": "100",
-    "marginRight": "100",
-    "marginBottom": "30"
-  },
-  "input": {
-    "fontSize": "30",
-    "height": "80",
-    "width": "550",
-    "paddingLeft": "90",
-    "paddingTop": "15",
-    "borderWidth": "1",
-    "borderColor": "#48c9bf",
-    "borderRadius": "10",
-    "outline": "none"
-  },
-  "input-img": {
-    "position": "absolute",
-    "top": "10",
-    "left": "15",
-    "width": 550,
-    "backgroundColor": "#48c9bf",
-    "borderRadius": "10",
-    "marginTop": "40"
-  },
-  "input-login-text": {
-    "height": "80",
-    "widows": "550",
-    "textAlign": "center",
-    "lineHeight": "80",
-    "color": "#FFFFFF",
-    "fontSize": "35"
-  },
-  "input-login": {
-    "height": "80",
-    "width": "550",
-    "backgroundColor": "#48c9bf",
-    "borderRadius": "10",
-    "marginTop": "40"
-  },
-  "input-forget": {
-    "position": "absolute",
-    "left": "30",
-    "fontSize": "30"
-  },
-  "input-register": {
-    "position": "absolute",
-    "right": "30",
-    "fontSize": "30"
-  }
-}
-
-/***/ }),
-
-/***/ 31:
+/***/ 27:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 //
 //
 //
@@ -225,100 +147,88 @@ module.exports = {
 //
 //
 
-module.exports = {
-
-  data: {
-    mobile: "",
-    pwd: ""
-  },
-
-  methods: {
-
-    onChangeUserMobile: function onChangeUserMobile(event) {
-      this.mobile = event.value;
+exports.default = {
+  props: {
+    action: {
+      type: String,
+      require: true
     },
-
-    onChangeUserPassword: function onChangeUserPassword(event) {
-      this.pwd = event.value;
+    headers: {
+      type: Object
     },
-
-    findPassword: function findPassword() {
-      console.log("Go Find pwd");
+    multiple: {
+      type: Boolean,
+      default: false
     },
-
-    register: function register() {
-      console.log("Go register");
+    data: {
+      type: Object
     },
-
-    login: function login() {
-      console.log("mobile = " + this.mobile + "password = " + this.pwd);
+    name: {
+      type: String,
+      default: 'file'
+    },
+    withCredentials: {
+      type: Boolean,
+      default: false
+    },
+    showFileList: {
+      type: Boolean,
+      default: false
+    },
+    drag: {
+      type: Boolean,
+      default: false
+    },
+    accept: {
+      type: String
+    },
+    onPreview: {
+      type: Function
+    },
+    onSuccess: {
+      type: Function
+    },
+    onRemove: {
+      type: Function
+    },
+    beforeUpload: {
+      type: Function
     }
+  },
+  data: function data() {
+    return {
+      upload_file: null
+    };
   }
 };
 
 /***/ }),
 
-/***/ 32:
+/***/ 28:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wrapper"]
-  }, [_c('div', {
-    staticClass: ["login"]
-  }, [_vm._m(0), _vm._m(1), _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('div', {
-    staticClass: ["input-login"],
-    on: {
-      "click": _vm.login
-    }
-  }, [_c('text', {
-    staticClass: ["input-login-text"]
-  }, [_vm._v("Login")])])]), _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('text', {
-    staticClass: ["input-forget"],
-    on: {
-      "click": _vm.findPassword
-    }
-  }, [_vm._v("Find password")]), _c('text', {
-    staticClass: ["input-register"],
-    on: {
-      "click": _vm.register
-    }
-  }, [_vm._v("Register")])])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('input', {
-    staticClass: ["input"],
+  return _c('el-upload', {
+    staticClass: ["image-uploader-warp"],
     attrs: {
-      "type": "text",
-      "placeholder": "Input Mobile",
-      "autofocus": "true",
-      "value": "",
-      "onchange": "onChangeUserMobile"
+      "action": _vm.action,
+      "headers": _vm.headers,
+      "multiple": _vm.multiple,
+      "data": _vm.data,
+      "name": _vm.name,
+      "withCredentials": _vm.withCredentials,
+      "showFileList": _vm.showFileList,
+      "drag": _vm.drag,
+      "accept": _vm.accept,
+      "onPreview": _vm.onPreview,
+      "onSuccess": _vm.onSuccess,
+      "onRemove": _vm.onRemove,
+      "beforeUpload": _vm.beforeUpload
     }
-  }), _c('div', {
-    staticClass: ["input-img"]
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('input', {
-    staticClass: ["input"],
-    attrs: {
-      "type": "text",
-      "placeholder": "Input Password",
-      "autofocus": "true",
-      "value": "",
-      "onchange": "onChangeUserPassword"
-    }
-  }), _c('div', {
-    staticClass: ["input-img"]
-  })])
-}]}
+  }, [_c('div', {
+    staticClass: ["el-upload-icon"]
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ })
