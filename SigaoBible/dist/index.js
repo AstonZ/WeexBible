@@ -62,25 +62,30 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(1)
+__vue_styles__.push(__webpack_require__(6)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(2)
+__vue_exports__ = __webpack_require__(7)
 
 /* template */
-var __vue_template__ = __webpack_require__(3)
+var __vue_template__ = __webpack_require__(8)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -114,7 +119,7 @@ new Vue(module.exports)
 
 
 /***/ }),
-/* 1 */
+/* 6 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -182,7 +187,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 2 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -254,17 +259,38 @@ module.exports = {
 };
 
 /***/ }),
-/* 3 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wrapper"]
   }, [_c('div', {
     staticClass: ["login"]
+  }, [_vm._m(0), _vm._m(1), _c('div', {
+    staticClass: ["input-wrapper"]
   }, [_c('div', {
+    staticClass: ["input-login"],
+    on: {
+      "click": _vm.login
+    }
+  }, [_c('text', {
+    staticClass: ["input-login-text"]
+  }, [_vm._v("Login")])])]), _c('div', {
+    staticClass: ["input-wrapper"]
+  }, [_c('text', {
+    staticClass: ["input-forget"],
+    on: {
+      "click": _vm.findPassword
+    }
+  }, [_vm._v("Find password")]), _c('text', {
+    staticClass: ["input-register"],
+    on: {
+      "click": _vm.register
+    }
+  }, [_vm._v("Register")])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
     staticClass: ["input-wrapper"]
   }, [_c('input', {
     staticClass: ["input"],
@@ -277,7 +303,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('div', {
     staticClass: ["input-img"]
-  })]), _c('div', {
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
     staticClass: ["input-wrapper"]
   }, [_c('input', {
     staticClass: ["input"],
@@ -290,28 +318,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('div', {
     staticClass: ["input-img"]
-  })]), _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('div', {
-    staticClass: ["input-login"],
-    attrs: {
-      "onclick": "login"
-    }
-  }, [_c('text', {
-    staticClass: ["input-login-text"]
-  }, [_vm._v("Login")])])]), _c('div', {
-    staticClass: ["input-wrapper"]
-  }, [_c('text', {
-    staticClass: ["input-forget"],
-    attrs: {
-      "onclick": "findPassword"
-    }
-  }, [_vm._v("Find password")]), _c('text', {
-    staticClass: ["input-register"],
-    attrs: {
-      "onclick": "register"
-    }
-  }, [_vm._v("Register")])])])])
+  })])
 }]}
 module.exports.render._withStripped = true
 
