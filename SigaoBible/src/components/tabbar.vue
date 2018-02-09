@@ -1,25 +1,21 @@
 <template>
   <div :class="['wrapper', isIpx&&isIpx()? 'w-ipx':'']">
-              <div class="bar-item" @click="tabTo('home')">
-            <text class="bar-ic iconfont" :class="[this.isActive('home')]">&#xe660;</text>
+        <div class="bar-item" @click="tabTo('home')">
+            <text class="bar-ic iconfont" :class="[this.isActive('home')]">&#xe60a;</text>
             <text class="bar-txt" :class="[this.isActive('home')]">首页</text>
         </div>
-        <div class="bar-item" @click="tabTo('topic')">
-            <text class="bar-ic iconfont" :class="[this.pIndexKey == 'topic'?'bar-active':'']">&#xe744;</text>
-            <text class="bar-txt" :class="[this.pIndexKey == 'topic'?'bar-active':'']">专题</text>
+        <div class="bar-item" @click="tabTo('reference')">
+            <text class="bar-ic iconfont" :class="[this.pIndexKey == 'reference'?'bar-active':'']">&#xe60b;</text>
+            <text class="bar-txt" :class="[this.pIndexKey == 'reference'?'bar-active':'']">文献</text>
             <text class="notice-dot"></text>
         </div>
-        <div class="bar-item" @click="tabTo('class')">
-            <text class="bar-ic iconfont" :class="[this.isActive('class')]">&#xe605;</text>
-            <text class="bar-txt" :class="[this.isActive('class')]">分类</text>
+        <div class="bar-item" @click="tabTo('translation')">
+            <text class="bar-ic iconfont" :class="[this.isActive('translation')]">&#xe60c;</text>
+            <text class="bar-txt" :class="[this.isActive('translation')]">译本史</text>
         </div>
-        <div class="bar-item" @click="tabTo('shop')">
-            <text class="bar-ic iconfont" :class="[this.isActive('shop')]">&#xe61a;</text>
-            <text class="bar-txt" :class="[this.isActive('shop')]">购物车</text>
-        </div>
-        <div class="bar-item" @click="tabTo('my')">
-            <text class="bar-ic iconfont" :class="[this.isActive('my')]">&#xe639;</text>
-            <text class="bar-txt" :class="[this.isActive('my')]">个人</text>
+        <div class="bar-item" @click="tabTo('user')">
+            <text class="bar-ic iconfont" :class="[this.isActive('user')]">&#xe60f;</text>
+            <text class="bar-txt" :class="[this.isActive('user')]">个人</text>
             <text class="i-notice">2</text>
         </div>
   </div>

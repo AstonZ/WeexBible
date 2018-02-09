@@ -97,6 +97,7 @@ const webConfig = {
       'src': helper.resolve('src'),
       'assets': helper.resolve('src/assets'),
       'components': helper.resolve('src/components'),
+      'pages': helper.resolve('src/pages'),
       'common': helper.resolve('src/common')
       // 'vuex-a': resolve('src/app/vuex'),
       // 'vuex-m': resolve('src/m/vuex'),

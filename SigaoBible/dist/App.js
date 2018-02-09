@@ -62,16 +62,27 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 9:
-/***/ (function(module, exports) {
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(1)
+)
+__vue_styles__.push(__webpack_require__(2)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(3)
+
+/* template */
+var __vue_template__ = __webpack_require__(4)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -83,7 +94,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/components/simpleImageUpload/index.vue"
+__vue_options__.__file = "/Users/AstonWorkMac/Desktop/PA/Git-MA-Projects/WeexBible/SigaoBible/src/App.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-597e7b80"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -101,6 +115,105 @@ module.exports.el = 'true'
 new Vue(module.exports)
 
 
-/***/ })
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
 
-/******/ });
+module.exports = {}
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "app-wrapper": {
+    "backgroundColor": "#f4f4f4"
+  },
+  "r-box": {
+    "position": "absolute",
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0
+  }
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _tabBar = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"components/tabBar.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _tabBar2 = _interopRequireDefault(_tabBar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var modal = weex.requireModule('modal');
+
+exports.default = {
+
+    components: {
+        'tab-bar': _tabBar2.default
+    },
+
+    methods: {
+        onTabTo: function onTabTo(_result) {
+            var _key = _result.data.key || '';
+            this.$router && this.$router.push('/' + _key);
+        }
+    },
+
+    data: function data() {
+        return {};
+    },
+    created: function created() {}
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports={render:function(){},staticRenderFns:[]}
+
+/***/ })
+/******/ ]);

@@ -1,6 +1,22 @@
 import Vue from 'vue';
 
-import weex from 'weex-vue-render';
+import App from './App.vue'
+import router from './router'
+import * as filters from './filters'
+import mixins from './mixins'
+
+Object.keys(filters).forEach( key => {
+    Vue.filter(key, filters[key])
+})
+
+Vue.mixin(mixins);
+
+//
+new Vue(Vue.util.extend({
+    el: '#root', router
+}, App));
+
+router.push('/');
 
 // import render-core.
 // import weex from 'weex-vue-render/dist/index.core';
@@ -14,4 +30,4 @@ import weex from 'weex-vue-render';
 // weex.install(slider);
 // weex.install(stream);
 
-weex.init(Vue);
+// weex.init(Vue);

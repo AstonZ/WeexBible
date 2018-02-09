@@ -32,6 +32,6 @@ router.push('/');
 
 // weex.init(Vue);
 
-const App = require('../src/index.vue');
+const App = require('../src/App.vue');
 App.el = '#root';
 new Vue(App);
