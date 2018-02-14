@@ -1,9 +1,5 @@
 <template>
-  <div class="wrapper">
-    <text class="greeting">The environment is ready!</text>
-    <text class="message">Now, let's use Vue.js to build your Weex app.</text>
     <App></App>
-  </div>
 </template>
 
 <script>
