@@ -1,7 +1,7 @@
 {
-  "name": "SigaoBible",
+  "name": "WeexBible",
   "version": "1.0.0",
-  "description": "Bible Reader",
+  "description": "A weex project",
   "main": "index.js",
   "scripts": {
     "start": "npm run serve",
@@ -23,12 +23,11 @@
   "keywords": [
     "weex"
   ],
-  "author": "Aston",
+  "author": "litGang <litgang@vip.sina.com>",
   "license": "MIT",
   "dependencies": {
     "vue": "^2.5.11",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
     "weex-html5": "^0.4.1",
     "weex-vue-render": "^0.12.26"
   },
