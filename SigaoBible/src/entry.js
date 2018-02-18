@@ -17,13 +17,14 @@ import * as filters from 'src/filters'
 import mixins from 'src/mixins'
 // import weex from 'weex-vue-render';
 
-// weex.init(Vue);
 
 Object.keys(filters).forEach( key => {
     Vue.filter(key, filters[key])
 })
 
 Vue.mixin(mixins);
+
+weex.init(Vue);
 
 new Vue(Vue.util.extend({
     el: '#root', router
