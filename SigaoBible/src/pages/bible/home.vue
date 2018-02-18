@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <text class="text-holder"> Home</text>
+        <text class="text-holder">Bible Home</text>
     </div>
 </template>
 <script>

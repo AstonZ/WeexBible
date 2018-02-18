@@ -5,8 +5,8 @@
             <text class="bar-txt" :class="[this.isActive('home')]">首页</text>
         </div>
         <div class="bar-item" @click="tabTo('reference')">
-            <text class="bar-ic iconfont" :class="[this.pIndexKey == 'reference'?'bar-active':'']">&#xe60b;</text>
-            <text class="bar-txt" :class="[this.pIndexKey == 'reference'?'bar-active':'']">文献</text>
+            <text class="bar-ic iconfont" :class="[this.curIndexKey == 'reference'?'bar-active':'']">&#xe60b;</text>
+            <text class="bar-txt" :class="[this.curIndexKey == 'reference'?'bar-active':'']">文献</text>
             <text class="notice-dot"></text>
         </div>
         <div class="bar-item" @click="tabTo('translation')">
@@ -14,7 +14,7 @@
             <text class="bar-txt" :class="[this.isActive('translation')]">译本史</text>
         </div>
         <div class="bar-item" @click="tabTo('user')">
-            <text class="bar-ic iconfont" :class="[this.isActive('user')]">&#xe60f;</text>
+            <text class="bar-ic iconfont" :class="[this.isActive('user')]">&#xe60d;</text>
             <text class="bar-txt" :class="[this.isActive('user')]">个人</text>
             <text class="i-notice">2</text>
         </div>
@@ -46,6 +46,7 @@
             },
 
             tabTo: function (_key){
+              console.log("tabBar tabed key " + _key);
                 if (this.curIndexKey === _key) return;
                 this.curIndexKey = _key;
                 this.$emit('tabTo', {
@@ -69,7 +70,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        height: 90;
+        height: 160;
         flex-wrap: nowrap;
         flex-direction: row;
         justify-content: space-around;

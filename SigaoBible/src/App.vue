@@ -44,6 +44,7 @@
 
         methods: {
             onTabTo(_result){
+                console.log("App.vue start push to key "+ _result.data.key);
                 let _key = _result.data.key || '';
                 this.$router && this.$router.push('/'+_key);
             }
