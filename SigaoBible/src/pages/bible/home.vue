@@ -1,7 +1,13 @@
 <template>
     <div class="wrapper">
         <text class="text-holder">Bible Home</text>
+        <div class="img-wrapper">
+            <image class="img-cover" resize="stretch" 
+            :src="get_img_path('home-placeholder.png')>
+            </image>
+        </div>
     </div>
+
 </template>
 <script>
     export default {
@@ -23,9 +29,23 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: aqua
+        background-color: #333
     }
 
+    .img-wrapper {
+        position: fixed;
+        top:0;
+        left:0;
+        right:0;
+        height: 200;
+        background-color: #fff;
+    }
+
+    .img-cover {
+        width: 200;
+        height: 200;
+    }
+    
     .text-holder {
         height: 66;
         font-size: 26;
