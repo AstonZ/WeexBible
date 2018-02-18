@@ -1,21 +1,27 @@
 <template>
-    <div class="links">
-        <div class="abs">
-            <text>safe</text>
-        </div>
+    <div class="wrapper">
+        <text class="text-holder"> Translation </text>
     </div>
 </template>
-<style>
-    .abs{
+<script>
+
+</script>
+
+<style scoped>
+    .wrapper {
+        position: fixed;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: aqua
+    }
+    .text-holder {
+        height: 66;
+        font-size: 26;
+        padding-top: 16;
+        flex: 1;
+        text-align: center;
+        color: blueviolet;
     }
 </style>
-<script>
-    export default{
-        data(){
-            return {
-                msg: 'hello home'
-            }
-        },
-        components: {}
-    }
-</script>
