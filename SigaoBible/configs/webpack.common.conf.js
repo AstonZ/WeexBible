@@ -93,6 +93,11 @@ const webConfig = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': helper.resolve('src'),
+      'src': helper.resolve('src'),
+      'assets': helper.resolve('src/assets'),
+      'components': helper.resolve('src/components'),
+      'pages': helper.resolve('src/pages'),
+      'common': helper.resolve('src/common')      
     }
   },
   /*
