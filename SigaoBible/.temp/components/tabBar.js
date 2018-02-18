@@ -32,6 +32,6 @@ router.push('/');
 
 // weex.init(Vue);
 
-const App = require('../../src/components/tabBar.vue');
+const App = require('../../src/components/tabbar.vue');
 App.el = '#root';
 new Vue(App);
