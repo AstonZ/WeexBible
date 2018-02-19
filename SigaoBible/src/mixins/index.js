@@ -12,7 +12,7 @@ export default {
 
         // 获取图片在三端上不同的路径
         // e.g. 图片文件名是 test.jpg, 转换得到的图片地址为
-        // - H5      : http: //localhost:1337/src/assets/images/test.jpg
+        // - H5      : http: //http://192.168.3.17:8081//src/assets/images/test.jpg
         // - Android : local:///test
         // - iOS     : ../images/test.jpg
         // 使用方法:
@@ -22,7 +22,7 @@ export default {
             let img_path = ''
 
             if (platform == 'Web') {
-                img_path = `http://localhost:1337/src/assets/images/${img_name}`
+                img_path = `http://192.168.3.17:8081//src/assets/images/${img_name}`
             } else if (platform == 'android') {
                 // android 不需要后缀
                 img_name = img_name.substr(0, img_name.lastIndexOf('.'));
